@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+strong,
+small {
+  font-family: "Nunito", sans-serif;
+}
+
+body {
+  background-color: #e6e9d9;
+}
+
+@font-face {
+  font-family: "Bubble";
+  src: url("../../assets/BubbleboddyNeueTrialRegular-Vm1l.ttf");
+}
+
+.text-comic {
+  font-family: "Bubble", sans-serif;
+}
+
+.bg-wood {
+  color: #a37c4d;
+  background: linear-gradient(to bottom, #c19a6b 0%, #b28b5c 100%);
+  border: 1px solid #a37c4d;
+  text-shadow: 0 1px 0 #d0a97a;
+  -webkit-text-shadow: 0 1px 0 #d0a97a;
+  -moz-text-shadow: 0 1px 0 #d0a97a;
+  box-shadow: inset 0 1px 0 #d0a97a;
+  -webkit-box-shadow: inset 0 1px 0 #d0a97a;
+  -moz-box-shadow: inset 0 1px 0 #d0a97a;
+}
