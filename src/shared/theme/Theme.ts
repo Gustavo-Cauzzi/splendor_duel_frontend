@@ -1,9 +1,11 @@
-import { createTheme, darken, lighten, rgbToHex } from "@mui/material";
+import { createTheme, darken, lighten } from "@mui/material";
 type Mode = "light" | "dark";
 
-export const lightColor = "#e6e9d9";
-export const mainColor = darken("#e6e9d9", 0.45);
-export const darkColor = darken("#e6e9d9", 0.65);
+const background = "#e6e9d9";
+export const mainColor = "#BE9768";
+export const extraLighColor = lighten(mainColor, 0.65);
+export const lightColor = lighten(mainColor, 0.45);
+export const darkColor = darken(mainColor, 0.45);
 
 const lightPalette = {
   primary: {
@@ -11,14 +13,14 @@ const lightPalette = {
     main: mainColor,
     dark: darkColor,
   },
-  background: { default: "#e6e9d9" },
+  background: { default: background },
 };
 
 const darkPalette = {
   primary: {
-    light: "#e5e5e5",
-    main: darken("#e5e5e5", 0.45),
-    dark: darken("#e5e5e5", 0.65),
+    light: extraLighColor,
+    main: darken(extraLighColor, 0.45),
+    dark: darken(extraLighColor, 0.65),
   },
   background: { default: "#2B2C29" },
 };
@@ -101,6 +103,11 @@ export const theme = (mode: Mode) =>
         styleOverrides: {
           root: {
             textTransform: "none",
+            "&.MuiButton-containedPrimary": {
+              textTransform: "none",
+              color: "#FFF",
+              fontWeight: "bold",
+            },
           },
         },
       },
