@@ -1,10 +1,18 @@
 import { useNavigate } from "react-router-dom";
 import { FiUser } from "react-icons/fi";
+import { useSelector } from "react-redux";
+import { UiUser } from "../../@types/User";
+import { RootState } from "../../store/store";
 
 export const Header: React.FC = () => {
   const navigate = useNavigate();
 
-  const isAuthenticated = true;
+  const user = useSelector<RootState, UiUser | null>(
+    (state) => state.auth.user
+  );
+  const isLogged = useSelector<RootState, boolean>(
+    (state) => state.auth.isLogged
+  );
 
   const headerHeight = "h-[6rem]";
 
@@ -23,9 +31,9 @@ export const Header: React.FC = () => {
         <div className="flex gap-5 max-w-sm items-center">
           <div className="flex flex-col items-end leading-[1.3]">
             <span className="text-white">
-              {isAuthenticated ? "Gustavo Cauzzi" : "Log in"}
+              {isLogged ? user?.username : "Log in"}
             </span>
-            {isAuthenticated ? <span className="text-white">Lvl. 3</span> : ""}
+            {isLogged ? <span className="text-white">Lvl. 3</span> : ""}
           </div>
 
           <div className="p-2 rounded-full border-white border-2">

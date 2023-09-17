@@ -111,5 +111,10 @@ export const theme = (mode: Mode) =>
           },
         },
       },
+      MuiTextField: {
+        defaultProps: {
+          size: "small",
+        },
+      },
     },
   });

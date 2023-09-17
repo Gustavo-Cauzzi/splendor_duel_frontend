@@ -8,7 +8,7 @@ export const Home: React.FC = () => {
     <main>
       <div className="flex h-screen">
         <div className="flex flex-[0.6] items-center justify-center">
-          <div className="max-w-[25rem] w-full aspect-square bg-pink-500 rounded-3xl">
+          <div className="max-w-[25rem] w-full aspect-square bg-primary-500 rounded-3xl flex justify-center items-center">
             Board irado emocionante que não está pronto
           </div>
         </div>

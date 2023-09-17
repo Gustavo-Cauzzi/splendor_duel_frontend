@@ -12,8 +12,10 @@ import { FiExternalLink } from "react-icons/fi";
 import { UUID } from "../../shared/@types/general";
 import { Room } from "../../shared/@types/Room";
 import { api } from "../../shared/services/api";
+import { useNavigate } from "react-router-dom";
 
 export const GameList: React.FC = () => {
+  const navigate = useNavigate();
   const [rooms, setRooms] = useState<Room[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -32,12 +34,27 @@ export const GameList: React.FC = () => {
     console.log("id: ", id);
   };
 
+  useEffect(() => {
+    console.log("rooms", rooms);
+  }, [rooms]);
+
   return (
     <div className="flex justify-center">
       {isLoading ? (
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-2 items-center">
           <CircularProgress size={36} color="primary" />
           <span className="text-primary">Buscando salas...</span>
+        </div>
+      ) : rooms.length === 0 ? (
+        <div className="flex items-center flex-col gap-2 text-xl text-primary mt-6">
+          Não há nenhuma sala criada
+          <Button
+            variant="contained"
+            size="small"
+            onClick={() => navigate("/games/create")}
+          >
+            Criar uma sala!
+          </Button>
         </div>
       ) : (
         <Table className="max-w-sm">
